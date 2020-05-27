@@ -49,18 +49,18 @@ java -Dsentry.environment=production -Drelease=1.0 -jar build/libs/project-examp
 ```
 
 #### Cách 3: Qua biến môi trường
-Biến môi trường mà Sentry có thể parse được chính là tên biến viết hoa, với các dấu `.` thay bằng `_`. Ví dụ `sentry.sample.rate` sẽ là `SENTRY_SAMPLE_RATE`
+Biến môi trường mà Sentry có thể parse được chính là tên biến viết hoa kèm prefix SENTRY ở đầu, với các dấu `.` thay bằng `_`. Ví dụ `sample.rate` sẽ là `SENTRY_SAMPLE_RATE`
 ```shell script
 SENTRY_DSN=https://06bb609eb55b49aebbce0497613b5082:6588b52febb1418f9d28b4f07090ff9b@sentry.eway.vn/77 \ 
 java -jar build/libs/project-example-0.0.1-SNAPSHOT.jar 
 ```
 
-#Các biến thường sử dụng
+# Các biến thường sử dụng
 - `dsn`: unique URI cho mỗi project - lấy giá trị này từ mục cài đặt trong sentry project
 - `stacktrace.app.packages`: Biến này giúp sentry highlight package của project này trên giao diện
 - `release`: định danh version hiện tại nhằm mục đích filter hoặc report lỗi theo bản release
 - `environment`: định danh môi trường, có thể dùng để filter alert - chỉ email khi environment = production
-- `server_name`: tên server - có thể dùng để định danh node khi chạy nhiều container giúp tìm ra node gây lỗi (VD: server_name=adflex-pro-306)
+- `servername`: tên server - có thể dùng để định danh node khi chạy nhiều container giúp tìm ra node gây lỗi (VD: servername=adflex-pro-306)
 - `tags`: các cặp key-value tuỳ chỉnh, ví dụ như commit hash. 
 Truyền vào nhiều tag với pattern: `tags=tag1:value1,tag2:value2`
 
